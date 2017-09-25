@@ -44,7 +44,7 @@ function decrement() {
 //you lose message and image/answer populate when you lose
 function loser() {
   $("#question").empty().append("<img src='assets/images/answer1img.png' width='200px'>");
-  $(".choices").empty().append('Sorry! The answer was Sailor Mercury.');
+  $(".choices").empty().append('Sorry! ' + qAndA.screen.screen1);
   console.log("nooooo");
   stop();
   next();
@@ -53,7 +53,7 @@ function loser() {
 //congrats messgae and image/answer populate when you win
 function winner() {
   $("#question").empty().append("<img src='assets/images/answer1img.png' width='200px'>");
-  $(".choices").empty().append('Great job! Sailor Mercury\'s Japanese name (Ami) was imaginatively changed to "Blue" for the very entertaining pitch video to Dic execs. They ended up going with "Amy" instead. Good move.');
+  $(".choices").empty().append('Great job! ' + qAndA.screen.screen1);
   console.log("yippee");
   stop();
   next();
@@ -104,8 +104,8 @@ function stop() {
 //questions and answer choices object
 var qAndA = {
 	questions: {
-		question1: 'Which Sailor Scout was named "Blue" in the Dic pitch video for dubbing and broadcasting Sailor Moon in the United States?',
-		question2: "2. In the Dic dub of Sailor Moon, what is Nephlite's human-disguise alter ego's name?",
+		question1: '1. Which Sailor Scout is super brainy and hopes to be a doctor someday?',
+		question2: "2. In the DiC Entertainment (1990s) dub of Sailor Moon, what is Nephlite's human-disguise alter ego's name?",
 		question3: "3. What is the name of the evil queen in the first season story arc?",
 		question4: "4. Usagi, Sailor Moon's normal-teenage-girl name, means what in Japanese?",
 		question5: "",
@@ -117,10 +117,10 @@ var qAndA = {
 	},
 	answers: {
 		answer1: {
-			answer1a: " A. Sailor Mars",
-			answer1b: " B. Sailor Mercury",
-			answer1c: " C. Sailor Jupiter",
-			answer1d: " D. Sailor Venus"
+			answer1a: " A. Sailor Mars — Rei Hino",
+			answer1b: " B. Sailor Mercury — Ami Mizuno",
+			answer1c: " C. Sailor Jupiter — Makoto Kino",
+			answer1d: " D. Sailor Venus — Minako Aino"
 		},
 		answer2: {
 			answer2a: " A. Macaulay Culkin",
@@ -176,7 +176,20 @@ var qAndA = {
 			answer10c: " C. ",
 			answer10d: " D. "
 		}
+	},
+	screen: {
+		screen1: "Sailor Mercury (Ami) wants to be a doctor like her mother. She loves to read, study, and play chess.",
+		screen2: "",
+		screen3: "",
+		screen4: "",
+		screen5: "",
+		screen6: "",
+		screen7: "",
+		screen8: "",
+		screen9: "",
+		screen10: ""
 	}
+
 }//end qAndA object
 
 run();
