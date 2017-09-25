@@ -19,6 +19,13 @@ $("#stop").on("click", stop);
 
 $("#resume").on("click", run);
 
+function reset() {
+  number = 30000;
+  numberNormal = number / 1000;
+  $("#time").html(numberNormal);
+  run();
+}
+
 //begin countdown
 function run() {
   intervalId = setInterval(decrement, 1000);
@@ -31,24 +38,30 @@ function decrement() {
   if (numberNormal === 0) {
     stop();
     loser();
-    //add img/answer reveal, next button
   }
 }
 
 //you lose message and image/answer populate when you lose
 function loser() {
-  
+  $("#question").empty().append("<img src='assets/images/answer1img.png' width='200px'>");
+  $(".choices").empty().append('Sorry! The answer was Sailor Mercury.');
+  console.log("nooooo");
+  stop();
+  next();
 }
 
 //congrats messgae and image/answer populate when you win
 function winner() {
-  $("#question").empty();
+  $("#question").empty().append("<img src='assets/images/answer1img.png' width='200px'>");
+  $(".choices").empty().append('Great job! Sailor Mercury\'s Japanese name (Ami) was imaginatively changed to "Blue" for the very entertaining pitch video to Dic execs. They ended up going with "Amy" instead. Good move.');
   console.log("yippee");
+  stop();
+  next();
 }
 
-//stop countdown
-function stop() {
-  clearInterval(intervalId);
+//begin subsequent question
+function next() {
+  intervalId = setTimeout(reset, 5000);
 }
 
 //first question and set of answer choices appear
@@ -57,26 +70,38 @@ function appear1() {
 
   $("#choice1").html(qAndA.answers.answer1.answer1a);
   $("#choice2").html(qAndA.answers.answer1.answer1b);
-  $(".radio2").attr("class", "correct");
   $("#choice3").html(qAndA.answers.answer1.answer1c);
   $("#choice4").html(qAndA.answers.answer1.answer1d);
+
+  $(".radio2").attr("class", "correct");
 }
 
-// click next button to continue
-// $("#next").on("click", function() {
+function appearNext() {
   
-// }
+}
 
 //if correct answer chosen run winner
 $("input").on("click", function () {
   if ($(":radio.correct").is(":checked")) {
     console.log("yay");
     winner();
-  } else {
- }
+  }
 });
 
-//big object
+//if incorrect answer chosen run loser
+$("input").on("click", function () {
+  if (($(":radio").not(".correct")).is(":checked")) {
+    console.log("newp");
+    loser();
+  }
+});
+
+//stop countdown
+function stop() {
+  clearInterval(intervalId);
+}
+
+//questions and answer choices object
 var qAndA = {
 	questions: {
 		question1: 'Which Sailor Scout was named "Blue" in the Dic pitch video for dubbing and broadcasting Sailor Moon in the United States?',

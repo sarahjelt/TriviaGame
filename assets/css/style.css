@@ -16,13 +16,21 @@ p {
 	font-size: 24px;
 }
 
+.choices {
+	font-family: 'Roboto', sans-serif;
+	margin: 20px 0;
+	padding: 0 20px;
+	text-align: center;
+	font-size: 22px;
+}
+
 .padding {
 	padding: 15px 0;
 }
 
 .header {
 	background-color: white;
-	margin: 0 100px;
+	margin: 50px 100px 0 100px;
 }
 
 .parent {
