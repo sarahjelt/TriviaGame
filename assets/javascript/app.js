@@ -1,100 +1,6 @@
-// var number = 31000
-// var numberNormal = number / 1000;
-
-//var qs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
+//trivia game
 // var intervalId;
-
-// var possChoice;
-// var possAnsA;
-// var possAnsB;
-// var possAnsC;
-// var possAnsD;
-
-// var grandpa;
-
-// $("#stop").on("click", stop);
-
-// $("#resume").on("click", run);
-
-// function reset() {
-//   number = 30000;
-//   numberNormal = number / 1000;
-//   $("#time").html(numberNormal);
-//   run();
-// }
-
-//begin countdown
-// function run() {
-//   intervalId = setInterval(decrement, 1000);
-// }
-
-//number by which time counts down, runs stop at 0
-// function decrement() {
-//   numberNormal--;
-//   $("#time").html(numberNormal);
-//   if (numberNormal === 0) {
-//     stop();
-//     loser();
-//   }
-// }
-
-//you lose message and image/answer populate when you lose
-// function loser() {
-//   $("#question").empty().append("<img src='assets/images/answer1img.png' width='200px'>");
-//   $(".choices").empty().append('Sorry! ' + qAndA.screen.screen1);
-//   console.log("nooooo");
-//   stop();
-//   next();
-// }
-
-//congrats messgae and image/answer populate when you win
-// function winner() {
-//   $("#question").empty().append("<img src='assets/images/answer1img.png' width='200px'>");
-//   $(".choices").empty().append('Great job! ' + qAndA.screen.screen1);
-//   console.log("yippee");
-//   stop();
-//   next();
-// }
-
-//begin subsequent question
-// function next() {
-//   intervalId = setTimeout(reset, 5000);
-
-// }
-
-//first question and set of answer choices appear
-// function appear1() {
-//   $("#question").html(qAndA.questions.question1);
-
-//   $("#choice1").html(qAndA.answers.answer1.answer1a);
-//   $("#choice2").html(qAndA.answers.answer1.answer1b);
-//   $("#choice3").html(qAndA.answers.answer1.answer1c);
-//   $("#choice4").html(qAndA.answers.answer1.answer1d);
-
-//   $(".radio2").attr("class", "correct");
-// }
-
-//if correct answer chosen run winner
-// $("input").on("click", function () {
-//   if ($(":radio.correct").is(":checked")) {
-//     console.log("yay");
-//     winner();
-//   }
-// });
-
-// //if incorrect answer chosen run loser
-// $("input").on("click", function () {
-//   if (($(":radio").not(".correct")).is(":checked")) {
-//     console.log("newp");
-//     loser();
-//   }
-// });
-
-//stop countdown -- now in new object
-// function stop() {
-//   clearInterval(intervalId);
-// }
+//problem with hiding answer choices/emptying answer blurb for next Q
 
 var game = {
   questions: [
@@ -106,6 +12,7 @@ var game = {
         " C. Sailor Jupiter — Makoto Kino",
         " D. Sailor Venus — Minako Aino"
       ],
+      image: "<img src='assets/images/answer0img.png' width='200px'>",
       screen: "Sailor Mercury (Ami) wants to be a doctor like her mother. She loves to read, study, and play chess.",
       correct: 1
     },
@@ -117,7 +24,8 @@ var game = {
         " C. Maxwell Caulfield",
         " D. Holden Caulfield"
       ],
-      screen: "",
+      image: "<img src='assets/images/answer1img.jpg' width='200px'>",
+      screen: "It's Maxfield Stanton. Yeah. I know. What the hell.",
       correct: 1
     },
     {
@@ -128,7 +36,8 @@ var game = {
         " C. Queen Beryl",
         " D. Queen Barra"
       ],
-      screen: "",
+      image: "<img src='assets/images/answer2img.jpg' width='200px'>",
+      screen: "Beryl, like the gem, not Barra as my ignorant 7-year-old ears understood it.",
       correct: 2
     },
     {
@@ -139,7 +48,8 @@ var game = {
         " C. Moon",
         " D. Cupcake"
       ],
-      screen: "",
+      image: "<img src='assets/images/answer3img.jpg' width='200px'>",
+      screen: "She likes to eat cupcakes, and she has a cat, and her alias is Sailor Moon/The Moon Princess, but her name means Bunny!",
       correct: 0
     },
     {
@@ -150,18 +60,20 @@ var game = {
         " C. video game store clerk",
         " D. shrine maiden"
       ],
-      screen: "",
+      image: "<img src='assets/images/answer4img.jpg' width='200px'>",
+      screen: "Rei is a beautiful and mysterious shrine maiden at a Shinto shrine in Tokyo.",
       correct: 3
     },
     {
-      title: "6. Cooking and gardening are hobbies of which Sailor Scout?",
+      title: "6. Cooking is a hobby of which Sailor Scout?",
       answers: [
         " A. Sailor Moon — Usagi Tsukino",
         " B. Sailor Venus — Minako Aino",
         " C. Sailor Mercury — Ami Mizuno",
         " D. Sailor Jupiter — Makoto Kino"
       ],
-      screen: "",
+      image: "<img src='assets/images/answer5img.jpg' width='200px'>",
+      screen: 'Makoto\'s favorite hobby is cooking and she\'s really good at it!',
       correct: 3
     },
     {
@@ -172,18 +84,20 @@ var game = {
         " C. Sailor Earth",
         " D. Sailor Z"
       ],
-      screen: "",
+      image: "<img src='assets/images/answer6img.png' width='200px'>",
+      screen: "She\'s quite famous in the series before becoming Sailor Venus — there\'s even an arcade game that happens to be one of Usagi\'s favorites!",
       correct: 0
     },
     {
-      title: "8. What is Sailor Moon's heroic love interest?",
+      title: "8. What is the name of Sailor Moon's heroic love interest?",
       answers: [
         " A. Tuxedo Man",
         " B. Tuxedo Maiden",
-        " C. Tudedo Mask",
+        " C. Tuxedo Mask",
         " D. Tuxedo Mormont"
       ],
-      screen: "",
+      image: "<img src='assets/images/answer7img.jpg' width='200px'>",
+      screen: "One of the weirdest hero names ever. But masks are sexy, I mean right??",
       correct: 2
     },
     {
@@ -194,7 +108,8 @@ var game = {
         " C. I like salmon cakes and cricket soup",
         " D. I like tortillas and gluten free pizza"
       ],
-      screen: "",
+      image: "<img src='assets/images/answer8img.jpg' width='200px'>",
+      screen: "IN THE \'90s DUB, OK?! This one's really silly, sorry.",
       correct: 0
     },
     {
@@ -205,87 +120,100 @@ var game = {
         " C. TACOSSSSSS",
         " D. ENERGYYYYY"
       ],
-      screen: "",
+      image: "<img src='assets/images/answer9img.png' width='200px'>",
+      screen: '"HUMANS expend VAST amounts of ENERGYYYYY doing _______!" is said in basically every monster-of-the-week episode.',
       correct: 3
     }
   ], //end questions array
-
-  //number: 31000,
-  numberNormal: 10000 / 1000,
-  // intervalId: 0,
-  currentQuestion: 0,
-  intervalId: setInterval(this.decrement, 1000),
-
-  // reset: function() {
-  //   this.number = 30000;
-  //   $("#time").html(game.numberNormal);
-  //   game.run();
-  // },
+  intervalId: 0,
+  numberNormal: 30000 / 1000,
+  currentQuestion: -1,
+  numbers: [1, 2, 3, 4],
 
   //begin countdown
-  run: function() {
+  initialize: function() {
     intervalId = setInterval(this.decrement, 1000);
   },
 
-  //stop countdown
-  stop: function() {
-    clearInterval(game.intervalId);
-    console.log(game.numberNormal);
-  },
-
   decrement: function() {
-    $("#time").text(game.numberNormal);
-    // console.log(game.numberNormal);
+  	console.log("decrementing");
+    $("#time").html(game.numberNormal);
     game.numberNormal--;
     if (game.numberNormal === 0) {
-      game.stop();
       game.loser();
     }
   },
 
   loser: function() {
-    $("#question").empty().append("<img src='assets/images/answer1img.png' width='200px'>");
-    $(".choices").empty().append('Sorry! ' + game.questions[0].screen);
+    clearInterval(intervalId);
+    $("#question").empty().append(game.questions[game.currentQuestion].image);
+    $("#question").empty().append('Sorry! ' + game.questions[game.currentQuestion].screen);
     console.log("nooooo");
-    // game.stop();
     game.next();
   },
 
   winner: function() {
-    $("#question").empty().append("<img src='assets/images/answer1img.png' width='200px'>");
-    $(".choices").empty().append('Great job! ' + game.questions[0].screen);
+    clearInterval(intervalId);
+    $("#question").empty().append(game.questions[game.currentQuestion].image);
+
+    for (var i = 0; i < game.numbers.length + 1; i++) {
+      $(".num" + game.numbers[i]).empty();
+    }
+
+    var blurb = $("<div>");
+    blurb.appendTo($(".choices")).html('Great job! ' + game.questions[game.currentQuestion].screen);
     console.log("yippee");
-    game.stop();
-    // game.next();
+    game.next();
   },
 
   next: function() {
-    this.intervalId = setTimeout(game.reset, 5000);
+    intervalId = setTimeout(game.render, 5000);
   },
 
-  changeQuestion: function() {
-    if (this.currentQuestion === this.questions.length) {
-      //game over
-    } else {
-      this.currentQuestion++;
+  render: function() {
+    game.currentQuestion++;
+    if (game.currentQuestion > 0) {
+      game.numberNormal = 30000 / 1000;
+      game.initialize();
+      console.log("initialized");
     }
-  },
 
-  appear: function() {
-    $("#question").html(game.questions[0].title);
+    $(".blurb").empty();
+    $("#time").html(game.numberNormal);
 
-    $("#choice1").html(game.questions[0].answers[0]);
-    $("#choice2").html(game.questions[0].answers[1]);
-    $("#choice3").html(game.questions[0].answers[2]);
-    $("#choice4").html(game.questions[0].answers[3]);
+    var c = game.questions[game.currentQuestion].correct;
+    game.questions[game.currentQuestion].answers[c];
+    console.log(c + "HELLA");
+
+    $(".radio" + c).addClass("correct");
+    $("#question").html(game.questions[game.currentQuestion].title);
+
+    $("#choice1").append(game.questions[game.currentQuestion].answers[0]);
+    console.log(game.questions[game.currentQuestion].answers[0]);
+    console.log(game.currentQuestion + "NO DOUBT");
+    $("#choice2").append(game.questions[game.currentQuestion].answers[1]);
+    $("#choice3").append(game.questions[game.currentQuestion].answers[2]);
+    $("#choice4").append(game.questions[game.currentQuestion].answers[3]);
   }
-
 } //end object
 
-//some notes
-//gameObject.startGame(document.getElementById('app'));
-//render, utilities, aggregate functions
+//click functions
+//if correct answer chosen run winner
+$("input").on("click", function () {
+  if ($(":radio.correct").is(":checked")) {
+    console.log("yay");
+    game.winner();
+  }
+});
 
-game.run();
-game.appear();
+//if incorrect answer chosen run loser
+$("input").on("click", function () {
+  if (($(":radio").not(".correct")).is(":checked")) {
+    console.log("newp");
+    game.loser();
+  }
+});
+
+game.initialize();
+game.render();
 
