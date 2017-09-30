@@ -186,14 +186,20 @@ var game = {
     intervalId = setTimeout(game.render, 5000);
   },
 
+  //on clicking Restart button at end of game
   reset: function() {
-    game.blurb = $("<div>"),
-    game.intervalId = 0,
-    game.numberNormal = 30000 / 1000,
-    game.currentQuestion = -1,
-    game.tally = 0,
-    game.incorrectTally = 0,
-    game.unanswered = 0,
+    game.blurb.empty();
+    $("#question").empty();
+    $(".correct").empty();
+    $(".incorrect").empty();
+    $(".unanswered").empty();
+    game.blurb = $("<div>");
+    game.intervalId = 0;
+    game.numberNormal = 30000 / 1000;
+    game.currentQuestion = -1;
+    game.tally = 0;
+    game.incorrectTally = 0;
+    game.unanswered = 0;
     game.initialize();
     game.render();
   },
