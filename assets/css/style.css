@@ -1,5 +1,5 @@
 body {
-	background: url(../images/bedspreadprint.png);
+	background: url(../images/bedspreadprint.jpg);
 }
 
 h1 {
@@ -14,6 +14,26 @@ p {
 	padding: 10px 0;
 	text-align: center;
 	font-size: 24px;
+}
+
+button {
+	margin-top: 5%;
+	background-color: lavender;
+	color: hotpink;
+	text-align: center;
+	font-size: 32px;
+	border: 8px solid #ffff99;
+	border-radius: 2.5px;
+	padding: 15px 0px;
+	width: 45%;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+.centered {
+	text-align: center;
 }
 
 .choices {
@@ -60,3 +80,12 @@ p {
 	font-size: 22px;
 }
 
+#winner {
+	position: absolute;
+	height: 100vh;
+	width: 100%;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
