@@ -12,17 +12,17 @@
 
 <div class="header">
   <h1>Sailor Moon Trivia!</h1>
-  <p class="time-remaining">Time Remaining: <span id="time"></span></p>
+  <p class="time-remaining" style="display: none;">Time Remaining: <span id="time"></span></p>
 </div>
 <form class="parent">
-<div id="question"></div>
- <div class="choices">
+<div id="question" style="display: none;"></div>
+ <div class="choices" style="display: none;">
   <div class="padding num1"><input class="radio0" type="radio"><span id="choice1"></span><br></div>
   <div class="padding num2"><input class="radio1" type="radio"><span id="choice2"></span><br></div>
   <div class="padding num3"><input class="radio2" type="radio"><span id="choice3"></span><br></div>
   <div class="padding num4"><input class="radio3" type="radio"><span id="choice4"></span></div>
  </div>
- <!-- <div class="centered"><button>Start!</button></div> -->
+ <div class="centered"><button class="start">Start!</button></div>
 </form>
 
 <script

@@ -1,5 +1,4 @@
 //trivia game
-var executed = false;
 
 var game = {
   questions: [
@@ -226,9 +225,9 @@ var game = {
       $(".incorrect").html("Incorrect: " + (game.incorrectTally - game.unanswered));
       game.blurb.append("<p class='unanswered'>");
       $(".unanswered").html("Unanswered: " + game.unanswered);
-      game.blurb.append("<button class='centered'>");
-      $(".centered").text("Restart");
-      $(".centered").on("click", game.reset);
+      game.blurb.append("<button class='restart'>");
+      $(".restart").text("Restart");
+      $(".restart").on("click", game.reset);
 
       console.log("the end");
     }
@@ -274,19 +273,19 @@ $("input").on("click", function () {
 
   //splash page appearance -- I could NOT get this to work... I tried using the debugger, and when it pauses everything seems to be in order -- but as soon as I un-pause it just runs this function again so it's an endless loop of start button. I goofed by forgetting to do this until the end so I tried right up until I had to submit the assignment but just couldn't get it going.
 
-  // $(document).ready(function start() {
-  //   $("button").one("click", function () {
-  //     $("button").hide();
-  //     game.initialize();
-  //     console.log("initialized");
-  //     game.render();
-  //     $("#question").show();
-  //     $(".choices").show();
-  //     $(".time-remaining").show();
-  //     // debugger;
-  //   })
-  // })
+  //UPDATE: preventDefault!!! it works now
 
-game.initialize()
-game.render();
+  $(document).ready(function() {
+    $(".start").on("click", function () {
+      event.preventDefault();
+      $(".start").hide();
+      game.initialize();
+      console.log("initialized");
+      game.render();
+      $("#question").show();
+      $(".choices").show();
+      $(".time-remaining").show();
+    })
+  })
+
 
