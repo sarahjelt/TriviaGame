@@ -36,7 +36,7 @@ var game = {
         " D. Queen Barra"
       ],
       image: "<img src='assets/images/answer2img.jpg' height='350px'>",
-      screen: "Beryl, like the gem, not Barra as my ignorant 7-year-old ears understood it.",
+      screen: "Beryl, like the gem!",
       correct: 2
     },
     {
@@ -48,7 +48,7 @@ var game = {
         " D. Cupcake"
       ],
       image: "<img src='assets/images/answer3img.jpg' height='350px'>",
-      screen: "She likes to eat cupcakes, and she has a cat, and her alias is Sailor Moon/The Moon Princess, but her name means Bunny!",
+      screen: "She likes to eat cupcakes, and she has a cat, and her alias is Sailor Moon, but her name means Bunny!",
       correct: 0
     },
     {
@@ -84,7 +84,7 @@ var game = {
         " D. Sailor Z"
       ],
       image: "<img src='assets/images/answer6img.png' height='400px'>",
-      screen: "She\'s quite famous in the series before becoming Sailor Venus — there\'s even an arcade game that happens to be one of Usagi\'s favorites!",
+      screen: "Sailor V is quite famous in the series before becoming Sailor Venus — one of Usagi\'s favorite arcade games is based on her adventures!",
       correct: 0
     },
     {
@@ -96,7 +96,7 @@ var game = {
         " D. Tuxedo Mormont"
       ],
       image: "<img src='assets/images/answer7img.jpg' height='350px'>",
-      screen: "One of the weirdest hero names ever.",
+      screen: "It's Tuxedo Mask. One of the weirdest hero names ever.",
       correct: 2
     },
     {
@@ -108,7 +108,7 @@ var game = {
         " D. I like tortillas and gluten free pizza"
       ],
       image: "<img src='assets/images/answer8img.jpg' height='350px'>",
-      screen: "This one's really silly, sorry.",
+      screen: '"I like tuna fish and field mouse pudding." This one\'s really silly, sorry.',
       correct: 0
     },
     {
@@ -120,7 +120,7 @@ var game = {
         " D. ENERGYYYYY"
       ],
       image: "<img src='assets/images/answer9img.png' height='400px'>",
-      screen: '"HUMANS expend VAST amounts of ENERGYYYYY doing _______!" is said in basically every monster-of-the-week episode.',
+      screen: '"HUMANS expend VAST amounts of ENERGYYYYY doing _______!" is said in basically every episode of the first arc.',
       correct: 3
     }
   ], //end questions array
@@ -136,15 +136,11 @@ var game = {
 
   //begin countdown
   initialize: function() {
-    // if (game.currentQuestion === -2) {
-    //   start();
-    // } else if (game.currentQuestion >= 0) {
-      intervalId = setInterval(this.decrement, 1000);
-    // }
+    intervalId = setInterval(this.decrement, 1000);
   },
 
   decrement: function() {
-  	console.log("decrementing");
+    console.log("decrementing");
     $("#time").html(game.numberNormal);
     game.numberNormal--;
     if (game.numberNormal === -1) {
@@ -166,7 +162,6 @@ var game = {
     }
     
     game.blurb.prependTo($(".choices")).html('Sorry! ' + game.questions[game.currentQuestion].screen);
-    // $("#question").empty().append('Sorry! ' + game.questions[game.currentQuestion].screen);
     console.log("nooooo");
     game.next();
   },
@@ -271,28 +266,21 @@ $("input").on("click", function () {
   }
 });
 
-  //splash page appearance
-  // function start() {
-  //   game.currentQuestion++;
-  //   console.log(game.currentQuestion);
-  //   $("#question").hide();
-  //   $(".choices").hide();
-  //   $(".time-remaining").hide();
-  //   var blank = $("<div>");
-  //   var button = $("<button>")
-  //   $(".parent").append(blank);
-  //   blank.addClass("centered");
-  //   blank.append(button);
+  //splash page appearance -- I could NOT get this to work... I tried using the debugger, and when it pauses everything seems to be in order -- but as soon as I un-pause it just runs this function again so it's an endless loop of start button. I goofed by forgetting to do this until the end so I tried right up until I had to submit the assignment but just couldn't get it going.
 
-  //   button.text("Start!").on("click", function () {
-  //     button.empty();
+  // $(document).ready(function start() {
+  //   $("button").one("click", function () {
+  //     $("button").hide();
   //     game.initialize();
   //     console.log("initialized");
   //     game.render();
-  //   });
-  // }
+  //     $("#question").show();
+  //     $(".choices").show();
+  //     $(".time-remaining").show();
+  //     // debugger;
+  //   })
+  // })
 
-
-game.initialize();
+game.initialize()
 game.render();
 

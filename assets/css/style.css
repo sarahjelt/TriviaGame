@@ -68,7 +68,7 @@ button:hover {
 
 #question {
 	font-family: 'Roboto', sans-serif;
-	padding: 5px 0;
+	padding: 5px 20px;
 	text-align: center;
 	font-size: 30px;
 }
@@ -78,6 +78,7 @@ button:hover {
 	margin: 20px 0;
 	text-align: center;
 	font-size: 22px;
+	padding: 0 20px;
 }
 
 #winner {
