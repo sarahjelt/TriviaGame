@@ -217,7 +217,7 @@ var game = {
     } 
     //final screen of game
     else if (game.currentQuestion === 10) {
-      $("#question").empty().html("Congratulations, you do it! Here's how you did:");
+      $("#question").empty().html("Congratulations, you did it! Here's how you did:");
       game.blurb.empty().append("<img src='assets/images/winner.gif' height='450px'>");
       game.blurb.append("<p class='correct'>");
       $(".correct").html("Correct: " + game.tally);
