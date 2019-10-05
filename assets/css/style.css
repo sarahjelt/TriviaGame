@@ -91,3 +91,21 @@ button:hover {
 	bottom: 0;
 	right: 0;
 }
+
+.answer-img-425, .answer-img-400, .answer-img-350, .winner-img {
+	width: auto;
+	max-width: 100%;
+}
+.answer-img-425 { max-height: 425px; }
+.answer-img-400 { max-height: 400px; }
+.answer-img-350 { max-height: 350px; }
+.winner-img { max-height: 450px; }
+
+@media only screen and (max-width: 768px) {
+	.header {
+		margin: 50px 50px 0 50px;
+	}
+	.parent {
+		margin: 0 50px 100px 50px;
+	}
+}

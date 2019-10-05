@@ -10,7 +10,7 @@ var game = {
         " C. Sailor Jupiter — Makoto Kino",
         " D. Sailor Venus — Minako Aino"
       ],
-      image: "<img src='assets/images/answer0img.png' height='400px'>",
+      image: "<img class='answer-img-400' src='assets/images/answer0img.png'>",
       screen: "Sailor Mercury (Ami) wants to be a doctor like her mother. She loves to read, study, and play chess.",
       correct: 1
     },
@@ -22,7 +22,7 @@ var game = {
         " C. Maxwell Caulfield",
         " D. Holden Caulfield"
       ],
-      image: "<img src='assets/images/answer1img.jpg' height='350px'>",
+      image: "<img class='answer-img-350' src='assets/images/answer1img.jpg'>",
       screen: "It's Maxfield Stanton. Yeah. I know.",
       correct: 1
     },
@@ -34,7 +34,7 @@ var game = {
         " C. Queen Beryl",
         " D. Queen Barra"
       ],
-      image: "<img src='assets/images/answer2img.jpg' height='350px'>",
+      image: "<img class='answer-img-350' src='assets/images/answer2img.jpg'>",
       screen: "Beryl, like the gem!",
       correct: 2
     },
@@ -46,7 +46,7 @@ var game = {
         " C. Moon",
         " D. Cupcake"
       ],
-      image: "<img src='assets/images/answer3img.jpg' height='350px'>",
+      image: "<img class='answer-img-350' src='assets/images/answer3img.jpg'>",
       screen: "She likes to eat cupcakes, and she has a cat, and her alias is Sailor Moon, but her name means Bunny!",
       correct: 0
     },
@@ -58,7 +58,7 @@ var game = {
         " C. video game store clerk",
         " D. shrine maiden"
       ],
-      image: "<img src='assets/images/answer4img.jpg' height='425px'>",
+      image: "<img class='answer-img-425' src='assets/images/answer4img.jpg'>",
       screen: "Rei is a beautiful and mysterious shrine maiden at a Shinto shrine in Tokyo.",
       correct: 3
     },
@@ -70,7 +70,7 @@ var game = {
         " C. Sailor Mercury — Ami Mizuno",
         " D. Sailor Jupiter — Makoto Kino"
       ],
-      image: "<img src='assets/images/answer5img.jpg' height='350px'>",
+      image: "<img class='answer-img-350' src='assets/images/answer5img.jpg'>",
       screen: 'Makoto\'s favorite hobby is cooking and she\'s really good at it!',
       correct: 3
     },
@@ -82,7 +82,7 @@ var game = {
         " C. Sailor Earth",
         " D. Sailor Z"
       ],
-      image: "<img src='assets/images/answer6img.png' height='400px'>",
+      image: "<img class='answer-img-400' src='assets/images/answer6img.png'>",
       screen: "Sailor V is quite famous in the series before becoming Sailor Venus — one of Usagi\'s favorite arcade games is based on her adventures!",
       correct: 0
     },
@@ -94,7 +94,7 @@ var game = {
         " C. Tuxedo Mask",
         " D. Tuxedo Mormont"
       ],
-      image: "<img src='assets/images/answer7img.jpg' height='350px'>",
+      image: "<img class='answer-img-350' src='assets/images/answer7img.jpg'>",
       screen: "It's Tuxedo Mask. One of the weirdest hero names ever.",
       correct: 2
     },
@@ -106,7 +106,7 @@ var game = {
         " C. I like salmon cakes and cricket soup",
         " D. I like tortillas and gluten free pizza"
       ],
-      image: "<img src='assets/images/answer8img.jpg' height='350px'>",
+      image: "<img class='answer-img-350' src='assets/images/answer8img.jpg'>",
       screen: '"I like tuna fish and field mouse pudding." This one\'s really silly, sorry.',
       correct: 0
     },
@@ -118,7 +118,7 @@ var game = {
         " C. TACOSSSSSS",
         " D. ENERGYYYYY"
       ],
-      image: "<img src='assets/images/answer9img.png' height='400px'>",
+      image: "<img class='answer-img-400' src='assets/images/answer9img.png'>",
       screen: '"HUMANS expend VAST amounts of ENERGYYYYY doing _______!" is said in basically every episode of the first arc.',
       correct: 3
     }
@@ -139,12 +139,12 @@ var game = {
   },
 
   decrement: function() {
-    console.log("decrementing");
+    //console.log("decrementing");
     $("#time").html(game.numberNormal);
     game.numberNormal--;
     if (game.numberNormal === -1) {
       game.unanswered++;
-      console.log(game.unanswered);
+      //console.log(game.unanswered);
       game.loser();
     }
   },
@@ -161,14 +161,14 @@ var game = {
     }
     
     game.blurb.prependTo($(".choices")).html('Sorry! ' + game.questions[game.currentQuestion].screen);
-    console.log("nooooo");
+    //console.log("nooooo");
     game.next();
   },
 
   winner: function() {
     clearInterval(intervalId);
     this.tally++;
-    console.log("total number right is " + this.tally);
+    //console.log("total number right is " + this.tally);
     $("#question").empty().append(game.questions[game.currentQuestion].image);
 
     $(":radio").prop('checked', false).removeClass("correct");
@@ -205,20 +205,20 @@ var game = {
 
   render: function() {
     game.currentQuestion++;
-    console.log(game.tally);
-    console.log(game.incorrectTally);
+    //console.log(game.tally);
+    //console.log(game.incorrectTally);
 
     if (game.currentQuestion > 0 && game.currentQuestion < 10) {
       game.numberNormal = 30000 / 1000;
       game.initialize();
-      console.log("initialized");
+      //console.log("initialized");
       game.blurb.empty();
       $("#time").html(game.numberNormal);
     } 
     //final screen of game
     else if (game.currentQuestion === 10) {
       $("#question").empty().html("Congratulations, you did it! Here's how you did:");
-      game.blurb.empty().append("<img src='assets/images/winner.gif' height='450px'>");
+      game.blurb.empty().append("<img class='winner-img' src='assets/images/winner.gif'>");
       game.blurb.append("<p class='correct'>");
       $(".correct").html("Correct: " + game.tally);
       game.blurb.append("<p class='incorrect'>");
@@ -229,11 +229,11 @@ var game = {
       $(".restart").text("Restart");
       $(".restart").on("click", game.reset);
 
-      console.log("the end");
+      //console.log("the end");
     }
 
     var c = game.questions[game.currentQuestion].correct;
-    console.log(c + " is the index of the correct answer")
+    //console.log(c + " is the index of the correct answer")
     game.questions[game.currentQuestion].answers[c];
     $(".radio" + c).addClass("correct");
 
@@ -244,7 +244,7 @@ var game = {
     }
 
     $("#choice1").append(game.questions[game.currentQuestion].answers[0]);
-    console.log(game.currentQuestion + " is the index of the currentQuestion");
+    //console.log(game.currentQuestion + " is the index of the currentQuestion");
     $("#choice2").append(game.questions[game.currentQuestion].answers[1]);
     $("#choice3").append(game.questions[game.currentQuestion].answers[2]);
     $("#choice4").append(game.questions[game.currentQuestion].answers[3]);
@@ -266,26 +266,20 @@ $("input").on("click", function () {
 //if incorrect answer chosen run loser
 $("input").on("click", function () {
   if (($(":radio").not(".correct")).is(":checked")) {
-    console.log("newp");
+    //console.log("newp");
     game.loser();
   }
 });
-
-  //splash page appearance -- I could NOT get this to work... I tried using the debugger, and when it pauses everything seems to be in order -- but as soon as I un-pause it just runs this function again so it's an endless loop of start button. I goofed by forgetting to do this until the end so I tried right up until I had to submit the assignment but just couldn't get it going.
-
-  //UPDATE: preventDefault!!! it works now
 
   $(document).ready(function() {
     $(".start").on("click", function () {
       event.preventDefault();
       $(".start").hide();
       game.initialize();
-      console.log("initialized");
+      //console.log("initialized");
       game.render();
       $("#question").show();
       $(".choices").show();
       $(".time-remaining").show();
     })
   })
-
-
